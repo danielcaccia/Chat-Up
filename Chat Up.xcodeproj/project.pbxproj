@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		5D193D9B72DA952958531412 /* Pods_Chat_Up.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3399A2B54428F62737D8426 /* Pods_Chat_Up.framework */; };
+		8753A16D25D1F222009E44F8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8753A16C25D1F222009E44F8 /* Constants.swift */; };
 		8759ACFB25D0325D0022176A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8759ACFA25D0325D0022176A /* GoogleService-Info.plist */; };
 		87CE90EA25CA074100B17E63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CE90E925CA074100B17E63 /* AppDelegate.swift */; };
 		87CE90EC25CA074100B17E63 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CE90EB25CA074100B17E63 /* SceneDelegate.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8753A16C25D1F222009E44F8 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8759ACFA25D0325D0022176A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		87CE90E625CA074100B17E63 /* Chat Up.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chat Up.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87CE90E925CA074100B17E63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 				87CE910125CA078C00B17E63 /* Model */,
 				87CE90FE25CA075B00B17E63 /* View */,
 				87CE90FF25CA077D00B17E63 /* Controller */,
+				8753A16C25D1F222009E44F8 /* Constants.swift */,
 				87CE90F225CA074200B17E63 /* Assets.xcassets */,
 				87CE90F425CA074200B17E63 /* LaunchScreen.storyboard */,
 				87CE90F725CA074200B17E63 /* Info.plist */,
@@ -124,7 +127,6 @@
 				E80ECFBE2CB2BDBC152F878D /* Pods-Chat Up.debug.xcconfig */,
 				91DC3313FD6E4EC807FFB906 /* Pods-Chat Up.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -247,6 +249,7 @@
 				87CE90EA25CA074100B17E63 /* AppDelegate.swift in Sources */,
 				87CE90EC25CA074100B17E63 /* SceneDelegate.swift in Sources */,
 				87CE910D25CA0B7F00B17E63 /* SignInViewController.swift in Sources */,
+				8753A16D25D1F222009E44F8 /* Constants.swift in Sources */,
 				87CE911025CA0BA300B17E63 /* ChatViewController.swift in Sources */,
 				87CE910925CA0A5500B17E63 /* SignUpViewController.swift in Sources */,
 			);
