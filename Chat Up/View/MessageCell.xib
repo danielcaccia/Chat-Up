@@ -56,7 +56,7 @@
             <color red="0.42399999499320984" green="0.41200000047683716" blue="0.55299997329711914" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="Message Text">
-            <color red="0.83099997039999995" green="0.82400000100000004" blue="0.83499997849999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.83099997043609619" green="0.82400000095367432" blue="0.83499997854232788" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
