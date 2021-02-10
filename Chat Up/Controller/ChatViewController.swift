@@ -15,11 +15,8 @@ class ChatViewController: UIViewController {
     
     let db = Firestore.firestore()
     
-    var messages: [Message] = [
-        Message(sender: "1@2.com", body: "Hey!"),
-        Message(sender: "2@1.com", body: "S'up?"),
-        Message(sender: "1@2.com", body: "Alright.")
-    ]
+    var messages: [Message] = []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +27,31 @@ class ChatViewController: UIViewController {
         navigationItem.hidesBackButton = true
         
         tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
+        
+        loadMessages()
+    }
+    
+    func loadMessages() {
+        messages = []
+        
+        db.collection(K.Fstore.collectionName).getDocuments { (querySnapshot, error) in
+            if let err = error {
+                print("Error retrieving data from Firestore: \(err)")
+            } else {
+                if let snapshotDocuments = querySnapshot?.documents {
+                    for doc in snapshotDocuments {
+                        if let sender = doc.data()[K.Fstore.senderField] as? String,
+                           let body = doc.data()[K.Fstore.bodyField] as? String {
+                            self.messages.append(Message(sender, body))
+                            
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func sendButtonPressed(_ sender: UIButton) {
@@ -38,8 +60,8 @@ class ChatViewController: UIViewController {
                 K.Fstore.senderField: messageSender,
                 K.Fstore.bodyField: messageBody
             ]) { (error) in
-                if let e = error {
-                    print("Error saving data to Firestore: \(e)")
+                if let err = error {
+                    print("Error saving data to Firestore: \(err)")
                 } else {
                     print("Data saved to Firestore.")
                 }

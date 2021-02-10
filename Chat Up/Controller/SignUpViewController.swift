@@ -23,8 +23,8 @@ class SignUpViewController: UIViewController {
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
         if let email = emailTextField.text, let password = passwordTextField.text {
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                if let e = error {
-                    self.showAlert(with: e.localizedDescription)
+                if let err = error {
+                    self.showAlert(with: err.localizedDescription)
                     self.passwordTextField.text = ""
                 } else {
                     self.performSegue(withIdentifier: K.signUpSegue, sender: self)

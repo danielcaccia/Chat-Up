@@ -23,8 +23,8 @@ class SignInViewController: UIViewController {
     @IBAction func signInButtonPressed(_ sender: UIButton) {
         if let email = emailTextField.text, let password = passwordTextField.text {
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-                if let e = error {
-                    self.showAlert(with: e.localizedDescription)
+                if let err = error {
+                    self.showAlert(with: err.localizedDescription)
                     self.passwordTextField.text = ""
                 } else {
                     self.performSegue(withIdentifier: K.signInSegue, sender: self)
