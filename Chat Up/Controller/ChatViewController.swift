@@ -9,14 +9,14 @@ import UIKit
 import Firebase
 
 class ChatViewController: UIViewController {
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageTextField: UITextField!
     
     let db = Firestore.firestore()
     
     var messages: [Message] = []
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,33 +32,38 @@ class ChatViewController: UIViewController {
     }
     
     func loadMessages() {
-        messages = []
-        
-        db.collection(K.Fstore.collectionName).getDocuments { (querySnapshot, error) in
-            if let err = error {
-                print("Error retrieving data from Firestore: \(err)")
-            } else {
-                if let snapshotDocuments = querySnapshot?.documents {
-                    for doc in snapshotDocuments {
-                        if let sender = doc.data()[K.Fstore.senderField] as? String,
-                           let body = doc.data()[K.Fstore.bodyField] as? String {
-                            self.messages.append(Message(sender, body))
-                            
-                            DispatchQueue.main.async {
-                                self.tableView.reloadData()
+        db.collection(K.Fstore.collectionName)
+            .order(by: K.Fstore.dateField)
+            .addSnapshotListener { (querySnapshot, error) in
+                
+                self.messages = []
+                
+                if let err = error {
+                    print("Error retrieving data from Firestore: \(err)")
+                } else {
+                    if let snapshotDocuments = querySnapshot?.documents {
+                        for doc in snapshotDocuments {
+                            if let sender = doc.data()[K.Fstore.senderField] as? String,
+                               let body = doc.data()[K.Fstore.bodyField] as? String,
+                               let time = doc.data()[K.Fstore.dateField] as? Date {
+                                self.messages.append(Message(sender, body, time))
+                                
+                                DispatchQueue.main.async {
+                                    self.tableView.reloadData()
+                                }
                             }
                         }
                     }
                 }
             }
-        }
     }
     
     @IBAction func sendButtonPressed(_ sender: UIButton) {
         if let messageBody = messageTextField.text, let messageSender = Auth.auth().currentUser?.email {
             db.collection(K.Fstore.collectionName).addDocument(data: [
                 K.Fstore.senderField: messageSender,
-                K.Fstore.bodyField: messageBody
+                K.Fstore.bodyField: messageBody,
+                K.Fstore.dateField: Date().timeIntervalSince1970
             ]) { (error) in
                 if let err = error {
                     print("Error saving data to Firestore: \(err)")
@@ -88,7 +93,7 @@ class ChatViewController: UIViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
-
+    
 }
 
 //MARK: - UITableViewDataSource Methods
