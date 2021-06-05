@@ -12,8 +12,9 @@ struct K {
     static let appName = "ChatUp!"
     static let cellIdentifier = "ReusableCell"
     static let cellNibName = "MessageCell"
-    static let signUpSegue = "SignUpToChat"
-    static let signInSegue = "SignInToChat"
+    static let signUpSegue = "SignUpToContacts"
+    static let signInSegue = "SignInToContacts"
+    static let contactsSegue = "ContactsToChat"
     
     struct BrandColors {
         static let btnColor = "Button Color"
@@ -24,8 +25,10 @@ struct K {
     }
     
     struct Fstore {
-        static let collectionName = "messages"
+        static let connectionsCollectionName = "connections"
+        static let messagesCollectionName = "messages"
         static let senderField = "sender"
+        static let receiverField = "receiver"
         static let bodyField = "body"
         static let dateField = "date"
     }

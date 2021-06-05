@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BBk-K3-Dd5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BBk-K3-Dd5">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -143,6 +144,7 @@
                                 </state>
                                 <connections>
                                     <action selector="signInButtonPressed:" destination="EMm-Mw-3xc" eventType="touchUpInside" id="grs-7g-ZeG"/>
+                                    <segue destination="Pw8-sV-9Sa" kind="show" identifier="SignInToContacts" id="h7C-UF-2Cr"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xqp-dj-3zD" userLabel="Logo View">
@@ -196,7 +198,6 @@
                         <outlet property="emailTextField" destination="QFG-Hu-cEh" id="5W1-OM-Fj3"/>
                         <outlet property="passwordTextField" destination="U7b-dE-cur" id="AVe-6Y-htQ"/>
                         <outlet property="signInButton" destination="Qd3-Xg-9EE" id="FNR-8K-lax"/>
-                        <segue destination="6io-hY-LDi" kind="show" identifier="SignInToChat" id="EfE-j5-dyT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ves-YL-k0p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -277,6 +278,7 @@
                                 </state>
                                 <connections>
                                     <action selector="signUpButtonPressed:" destination="y6j-Em-LbY" eventType="touchUpInside" id="GoF-pb-xgT"/>
+                                    <segue destination="Pw8-sV-9Sa" kind="show" identifier="SignUpToContacts" id="d9P-o5-7o9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -296,7 +298,6 @@
                         <outlet property="emailTextField" destination="cDr-Ky-FRW" id="3ww-Xa-rYV"/>
                         <outlet property="passwordTextField" destination="kR2-5v-Z4m" id="qd7-Re-jMd"/>
                         <outlet property="signUpButton" destination="mVi-gf-xKu" id="Zbp-GD-9rl"/>
-                        <segue destination="6io-hY-LDi" kind="show" identifier="SignUpToChat" id="Utd-1E-f6P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qcv-C1-ior" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -311,6 +312,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rgD-ey-jE6" userLabel="Messages Table View">
+                                <rect key="frame" x="0.0" y="88" width="390" height="672"/>
+                                <color key="backgroundColor" name="Chat Background"/>
+                                <color key="sectionIndexBackgroundColor" name="Chat Background"/>
+                            </tableView>
                             <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vGx-6Q-bSn" userLabel="Messaging Stack View">
                                 <rect key="frame" x="25" y="770" width="350" height="40"/>
                                 <subviews>
@@ -340,11 +346,6 @@
                                     <constraint firstAttribute="height" constant="40" id="2ar-BT-QFW"/>
                                 </constraints>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rgD-ey-jE6" userLabel="Messages Table View">
-                                <rect key="frame" x="0.0" y="88" width="390" height="672"/>
-                                <color key="backgroundColor" name="Chat Background"/>
-                                <color key="sectionIndexBackgroundColor" name="Chat Background"/>
-                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="hVN-A5-Lu9"/>
                         <color key="backgroundColor" name="General Background"/>
@@ -372,7 +373,41 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OHv-eD-3gw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3477" y="117"/>
+            <point key="canvasLocation" x="4395" y="117"/>
+        </scene>
+        <!--Contacts View Controller-->
+        <scene sceneID="n91-m2-oRW">
+            <objects>
+                <viewController id="Pw8-sV-9Sa" customClass="ContactsViewController" customModule="Chat_Up" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9Ps-td-UiS">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aFR-7T-Nfn">
+                                <rect key="frame" x="0.0" y="88" width="390" height="722"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" name="Chat Background"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ij2-Va-0iS"/>
+                        <color key="backgroundColor" name="General Background"/>
+                        <constraints>
+                            <constraint firstItem="aFR-7T-Nfn" firstAttribute="top" secondItem="ij2-Va-0iS" secondAttribute="top" id="EgE-cE-QoN"/>
+                            <constraint firstItem="ij2-Va-0iS" firstAttribute="trailing" secondItem="aFR-7T-Nfn" secondAttribute="trailing" id="Rlo-Ss-CoN"/>
+                            <constraint firstItem="ij2-Va-0iS" firstAttribute="bottom" secondItem="aFR-7T-Nfn" secondAttribute="bottom" id="YAq-Jn-vzB"/>
+                            <constraint firstItem="aFR-7T-Nfn" firstAttribute="leading" secondItem="ij2-Va-0iS" secondAttribute="leading" id="gsn-6s-GX9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="WV6-XL-ozQ">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="person.crop.circle.fill.badge.plus" catalog="system" id="Rlg-sq-Qpv"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="6io-hY-LDi" kind="show" identifier="ContactsToChat" id="xk4-Wh-LhG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nqz-lq-q1P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3412" y="117"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="QpK-9u-E4c">
@@ -402,11 +437,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="EfE-j5-dyT"/>
+        <segue reference="d9P-o5-7o9"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
         <image name="exclamationmark.bubble" catalog="system" width="128" height="110"/>
+        <image name="person.crop.circle.fill.badge.plus" catalog="system" width="128" height="113"/>
         <namedColor name="Button Color">
             <color red="0.42399999499320984" green="0.41200000047683716" blue="0.55299997329711914" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
@@ -416,5 +452,8 @@
         <namedColor name="General Background">
             <color red="0.83099997043609619" green="0.82400000095367432" blue="0.83499997854232788" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

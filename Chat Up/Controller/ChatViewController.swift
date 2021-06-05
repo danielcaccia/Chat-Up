@@ -32,35 +32,34 @@ class ChatViewController: UIViewController {
     }
     
     func loadMessages() {
-        db.collection(K.Fstore.collectionName)
-            .order(by: K.Fstore.dateField)
-            .addSnapshotListener { (querySnapshot, error) in
-                
-                self.messages = []
-                
-                if let err = error {
-                    print("Error retrieving data from Firestore: \(err)")
-                } else {
-                    if let snapshotDocuments = querySnapshot?.documents {
-                        for doc in snapshotDocuments {
-                            if let sender = doc.data()[K.Fstore.senderField] as? String,
-                               let body = doc.data()[K.Fstore.bodyField] as? String,
-                               let time = doc.data()[K.Fstore.dateField] as? Date {
-                                self.messages.append(Message(sender, body, time))
-                                
-                                DispatchQueue.main.async {
-                                    self.tableView.reloadData()
-                                }
+        db.collection(K.Fstore.messagesCollectionName).order(by: K.Fstore.dateField).addSnapshotListener { (querySnapshot, error) in
+            
+            self.messages = []
+            
+            if let err = error {
+                print("Error retrieving data from Firestore: \(err)")
+            } else {
+                if let snapshotDocuments = querySnapshot?.documents {
+                    for doc in snapshotDocuments {
+                        if let sender = doc.data()[K.Fstore.senderField] as? String,
+                           let body = doc.data()[K.Fstore.bodyField] as? String {
+                            
+                            print(doc.data())
+                            self.messages.append(Message(sender, body))
+                            
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
                             }
                         }
                     }
                 }
             }
+        }
     }
     
     @IBAction func sendButtonPressed(_ sender: UIButton) {
         if let messageBody = messageTextField.text, let messageSender = Auth.auth().currentUser?.email {
-            db.collection(K.Fstore.collectionName).addDocument(data: [
+            db.collection(K.Fstore.messagesCollectionName).addDocument(data: [
                 K.Fstore.senderField: messageSender,
                 K.Fstore.bodyField: messageBody,
                 K.Fstore.dateField: Date().timeIntervalSince1970
@@ -105,9 +104,17 @@ extension ChatViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let message = messages[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! MessageCell
         
-        cell.messageLabel.text = messages[indexPath.row].body
+        cell.messageLabel.text = message.body
+        
+        if message.sender == Auth.auth().currentUser?.email {
+            
+
+        } else {
+
+        }
         
         return cell
     }

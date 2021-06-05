@@ -11,12 +11,10 @@ struct Message {
     
     let sender: String
     let body: String
-    let date: Date
     
-    init (_ sender: String, _ body: String, _ time: Date) {
+    init (_ sender: String, _ body: String) {
         self.sender = sender
         self.body = body
-        date = time
     }
     
 }
