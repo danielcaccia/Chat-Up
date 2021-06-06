@@ -27,6 +27,11 @@ class SignInViewController: UIViewController {
                     self.showAlert(with: err.localizedDescription)
                     self.passwordTextField.text = ""
                 } else {
+                    let user = Auth.auth().currentUser
+                    if let uid = user?.uid {
+                        print(uid)
+                    }
+                    
                     self.performSegue(withIdentifier: K.signInSegue, sender: self)
                 }
             }

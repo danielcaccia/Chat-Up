@@ -15,8 +15,8 @@ class MessageCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-//        messageBubble.layer.cornerRadius = messageBubble.frame.size.height / 5
         roundBorders()
+        setBubbleAlignment()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -27,6 +27,10 @@ class MessageCell: UITableViewCell {
         self.messageBubble.layer.cornerRadius = 15
         self.messageBubble.clipsToBounds = true
         self.messageBubble.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner, .layerMinXMaxYCorner]
+    }
+    
+    func setBubbleAlignment() {
+//        NSLayoutConstraint(item: messageBubble!, attribute: .centerX, relatedBy: .equal, toItem: superview?.centerXAnchor, attribute: .trailing, multiplier: 1, constant: 0)
     }
     
 }

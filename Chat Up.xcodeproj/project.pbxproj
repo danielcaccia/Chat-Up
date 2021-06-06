@@ -15,6 +15,8 @@
 		8758ADDB25D32714003F7E0E /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8758ADD925D32714003F7E0E /* MessageCell.xib */; };
 		8759ACFB25D0325D0022176A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8759ACFA25D0325D0022176A /* GoogleService-Info.plist */; };
 		87676BCD25D4969400D5DC35 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 87676BCC25D4969400D5DC35 /* IQKeyboardManagerSwift */; };
+		8767AD38266C361E00C707C9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8767AD37266C361E00C707C9 /* User.swift */; };
+		8767AD3A266C37FA00C707C9 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8767AD39266C37FA00C707C9 /* Chat.swift */; };
 		87CE90EA25CA074100B17E63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CE90E925CA074100B17E63 /* AppDelegate.swift */; };
 		87CE90EC25CA074100B17E63 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CE90EB25CA074100B17E63 /* SceneDelegate.swift */; };
 		87CE90EE25CA074100B17E63 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CE90ED25CA074100B17E63 /* WelcomeViewController.swift */; };
@@ -33,6 +35,8 @@
 		8758ADD825D32714003F7E0E /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 		8758ADD925D32714003F7E0E /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		8759ACFA25D0325D0022176A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8767AD37266C361E00C707C9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8767AD39266C37FA00C707C9 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		87CE90E625CA074100B17E63 /* Chat Up.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chat Up.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87CE90E925CA074100B17E63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87CE90EB25CA074100B17E63 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,11 +130,11 @@
 			isa = PBXGroup;
 			children = (
 				8758ADD825D32714003F7E0E /* MessageCell.swift */,
+				87CE90ED25CA074100B17E63 /* WelcomeViewController.swift */,
+				87CE910C25CA0B7F00B17E63 /* SignInViewController.swift */,
+				87CE910825CA0A5500B17E63 /* SignUpViewController.swift */,
 				870EF7D9266BCF2000199A9C /* ContactsViewController.swift */,
 				87CE910F25CA0BA300B17E63 /* ChatViewController.swift */,
-				87CE910825CA0A5500B17E63 /* SignUpViewController.swift */,
-				87CE910C25CA0B7F00B17E63 /* SignInViewController.swift */,
-				87CE90ED25CA074100B17E63 /* WelcomeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -139,6 +143,8 @@
 			isa = PBXGroup;
 			children = (
 				8758ADD525D32191003F7E0E /* Message.swift */,
+				8767AD37266C361E00C707C9 /* User.swift */,
+				8767AD39266C37FA00C707C9 /* Chat.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -275,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87CE90EE25CA074100B17E63 /* WelcomeViewController.swift in Sources */,
+				8767AD3A266C37FA00C707C9 /* Chat.swift in Sources */,
 				87CE90EA25CA074100B17E63 /* AppDelegate.swift in Sources */,
 				87CE90EC25CA074100B17E63 /* SceneDelegate.swift in Sources */,
 				87CE910D25CA0B7F00B17E63 /* SignInViewController.swift in Sources */,
@@ -284,6 +291,7 @@
 				87CE910925CA0A5500B17E63 /* SignUpViewController.swift in Sources */,
 				8758ADDA25D32714003F7E0E /* MessageCell.swift in Sources */,
 				870EF7DA266BCF2000199A9C /* ContactsViewController.swift in Sources */,
+				8767AD38266C361E00C707C9 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

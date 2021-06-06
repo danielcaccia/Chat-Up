@@ -10,9 +10,12 @@ import Firebase
 
 class SignUpViewController: UIViewController {
 
+    @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
+    
+    var db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +30,23 @@ class SignUpViewController: UIViewController {
                     self.showAlert(with: err.localizedDescription)
                     self.passwordTextField.text = ""
                 } else {
-                    self.performSegue(withIdentifier: K.signUpSegue, sender: self)
+                    let user = Auth.auth().currentUser
+                    
+                    if let userName = self.nameTextField.text, let email = user?.email, let uid = user?.uid {
+                        self.db.collection(K.Fstore.usersCollectionName).addDocument(data: [
+                            K.Fstore.userNameField: userName,
+                            K.Fstore.emailField: email,
+                            K.Fstore.uidField: uid
+                        ]) { error in
+                            if let err = error {
+                                print("Error saving data to Firestore: \(err)")
+                            } else {
+                                print("Data saved to Firestore.")
+                            }
+                        }
+                        
+                        self.performSegue(withIdentifier: K.signUpSegue, sender: self)
+                    }
                 }
             }
         }

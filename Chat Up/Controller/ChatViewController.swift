@@ -14,9 +14,8 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var messageTextField: UITextField!
     
     let db = Firestore.firestore()
-    
+    let currentUser = Auth.auth().currentUser
     var messages: [Message] = []
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +44,7 @@ class ChatViewController: UIViewController {
                            let body = doc.data()[K.Fstore.bodyField] as? String {
                             
                             print(doc.data())
-                            self.messages.append(Message(sender, body))
+                            self.messages.append(Message(sender, body, Date().timeIntervalSince1970))
                             
                             DispatchQueue.main.async {
                                 self.tableView.reloadData()
@@ -96,7 +95,6 @@ class ChatViewController: UIViewController {
 }
 
 //MARK: - UITableViewDataSource Methods
-
 extension ChatViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -109,9 +107,8 @@ extension ChatViewController: UITableViewDataSource {
         
         cell.messageLabel.text = message.body
         
-        if message.sender == Auth.auth().currentUser?.email {
+        if message.sender == currentUser?.uid {
             
-
         } else {
 
         }

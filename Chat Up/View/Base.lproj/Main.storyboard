@@ -144,7 +144,6 @@
                                 </state>
                                 <connections>
                                     <action selector="signInButtonPressed:" destination="EMm-Mw-3xc" eventType="touchUpInside" id="grs-7g-ZeG"/>
-                                    <segue destination="Pw8-sV-9Sa" kind="show" identifier="SignInToContacts" id="h7C-UF-2Cr"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xqp-dj-3zD" userLabel="Logo View">
@@ -198,6 +197,7 @@
                         <outlet property="emailTextField" destination="QFG-Hu-cEh" id="5W1-OM-Fj3"/>
                         <outlet property="passwordTextField" destination="U7b-dE-cur" id="AVe-6Y-htQ"/>
                         <outlet property="signInButton" destination="Qd3-Xg-9EE" id="FNR-8K-lax"/>
+                        <segue destination="Pw8-sV-9Sa" kind="show" identifier="SignInToContacts" id="ykb-Ye-lNP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ves-YL-k0p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -247,21 +247,26 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ivU-Mw-IAe" userLabel="Text Stack View">
-                                <rect key="frame" x="85" y="372" width="220" height="100"/>
+                                <rect key="frame" x="85" y="347" width="220" height="150"/>
                                 <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kzl-LB-yla" userLabel="Name Text Field">
+                                        <rect key="frame" x="0.0" y="0.0" width="220" height="36.666666666666664"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cDr-Ky-FRW">
-                                        <rect key="frame" x="0.0" y="0.0" width="220" height="40"/>
+                                        <rect key="frame" x="0.0" y="56.666666666666686" width="220" height="36.666666666666657"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kR2-5v-Z4m">
-                                        <rect key="frame" x="0.0" y="60" width="220" height="40"/>
+                                        <rect key="frame" x="0.0" y="113.33333333333333" width="220" height="36.666666666666671"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="Z24-sU-SaT"/>
+                                    <constraint firstAttribute="height" constant="150" id="Z24-sU-SaT"/>
                                     <constraint firstAttribute="width" constant="220" id="mYM-77-vS5"/>
                                 </constraints>
                             </stackView>
@@ -278,7 +283,6 @@
                                 </state>
                                 <connections>
                                     <action selector="signUpButtonPressed:" destination="y6j-Em-LbY" eventType="touchUpInside" id="GoF-pb-xgT"/>
-                                    <segue destination="Pw8-sV-9Sa" kind="show" identifier="SignUpToContacts" id="d9P-o5-7o9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -296,8 +300,10 @@
                     <navigationItem key="navigationItem" id="dsK-I9-ATz"/>
                     <connections>
                         <outlet property="emailTextField" destination="cDr-Ky-FRW" id="3ww-Xa-rYV"/>
+                        <outlet property="nameTextField" destination="kzl-LB-yla" id="BgQ-BV-Vml"/>
                         <outlet property="passwordTextField" destination="kR2-5v-Z4m" id="qd7-Re-jMd"/>
                         <outlet property="signUpButton" destination="mVi-gf-xKu" id="Zbp-GD-9rl"/>
+                        <segue destination="Pw8-sV-9Sa" kind="show" identifier="SignUpToContacts" id="jZS-3D-ySu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qcv-C1-ior" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -437,7 +443,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="d9P-o5-7o9"/>
+        <segue reference="jZS-3D-ySu"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>

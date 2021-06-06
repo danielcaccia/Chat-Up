@@ -38,7 +38,7 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Eoi-Ys-HnA" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="9ai-IA-lEG"/>
+                    <constraint firstItem="Eoi-Ys-HnA" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" identifier="bubbleAlignment" id="9ai-IA-lEG"/>
                     <constraint firstAttribute="bottom" secondItem="Eoi-Ys-HnA" secondAttribute="bottom" constant="10" id="SUi-7E-qDw"/>
                     <constraint firstItem="Eoi-Ys-HnA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Wfc-X1-O0v"/>
                 </constraints>
