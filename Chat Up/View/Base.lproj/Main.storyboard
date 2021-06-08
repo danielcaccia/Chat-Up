@@ -6,7 +6,6 @@
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -115,7 +114,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="9XW-8K-5bb" userLabel="Text Stack View">
                                 <rect key="frame" x="85" y="372" width="220" height="100"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="theiphone8user@chatup.com" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QFG-Hu-cEh">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="randomuser@chatup.com" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QFG-Hu-cEh">
                                         <rect key="frame" x="0.0" y="0.0" width="220" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -197,7 +196,7 @@
                         <outlet property="emailTextField" destination="QFG-Hu-cEh" id="5W1-OM-Fj3"/>
                         <outlet property="passwordTextField" destination="U7b-dE-cur" id="AVe-6Y-htQ"/>
                         <outlet property="signInButton" destination="Qd3-Xg-9EE" id="FNR-8K-lax"/>
-                        <segue destination="Pw8-sV-9Sa" kind="show" identifier="SignInToContacts" id="ykb-Ye-lNP"/>
+                        <segue destination="2eq-7g-Qzy" kind="show" identifier="SignInToContacts" id="mEv-9F-vPW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ves-YL-k0p" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -303,12 +302,62 @@
                         <outlet property="nameTextField" destination="kzl-LB-yla" id="BgQ-BV-Vml"/>
                         <outlet property="passwordTextField" destination="kR2-5v-Z4m" id="qd7-Re-jMd"/>
                         <outlet property="signUpButton" destination="mVi-gf-xKu" id="Zbp-GD-9rl"/>
-                        <segue destination="Pw8-sV-9Sa" kind="show" identifier="SignUpToContacts" id="jZS-3D-ySu"/>
+                        <segue destination="2eq-7g-Qzy" kind="show" identifier="SignUpToContacts" id="GmR-FQ-LoL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qcv-C1-ior" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2294" y="511"/>
+        </scene>
+        <!--Contacts View Controller-->
+        <scene sceneID="Qdp-8T-rvi">
+            <objects>
+                <tableViewController id="2eq-7g-Qzy" customClass="ContactsViewController" customModule="Chat_Up" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="y9d-KE-eIZ">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" name="Chat Background"/>
+                        <color key="sectionIndexBackgroundColor" name="Chat Background"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" textLabel="exn-ox-tJO" detailTextLabel="TIe-Q1-0Hq" style="IBUITableViewCellStyleSubtitle" id="u5a-pe-dvb">
+                                <rect key="frame" x="0.0" y="24.333333969116211" width="390" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u5a-pe-dvb" id="mMc-jL-H0C">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="exn-ox-tJO">
+                                            <rect key="frame" x="20" y="7.0000000000000009" width="27" height="14.333333333333334"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TIe-Q1-0Hq">
+                                            <rect key="frame" x="19.999999999999996" y="23.333333333333336" width="40.666666666666664" height="13.333333333333334"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" name="Chat Background"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="2eq-7g-Qzy" id="4ly-kR-yJ1"/>
+                            <outlet property="delegate" destination="2eq-7g-Qzy" id="Q7a-4Q-7xx"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Xoo-d4-OKZ"/>
+                    <connections>
+                        <segue destination="6io-hY-LDi" kind="show" identifier="ContactsToChat" id="jXV-4I-Mok"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Plk-Yv-r7i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3365" y="117"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="xxA-eT-kRB">
@@ -381,40 +430,6 @@
             </objects>
             <point key="canvasLocation" x="4395" y="117"/>
         </scene>
-        <!--Contacts View Controller-->
-        <scene sceneID="n91-m2-oRW">
-            <objects>
-                <viewController id="Pw8-sV-9Sa" customClass="ContactsViewController" customModule="Chat_Up" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9Ps-td-UiS">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aFR-7T-Nfn">
-                                <rect key="frame" x="0.0" y="88" width="390" height="722"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="sectionIndexBackgroundColor" name="Chat Background"/>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="ij2-Va-0iS"/>
-                        <color key="backgroundColor" name="General Background"/>
-                        <constraints>
-                            <constraint firstItem="aFR-7T-Nfn" firstAttribute="top" secondItem="ij2-Va-0iS" secondAttribute="top" id="EgE-cE-QoN"/>
-                            <constraint firstItem="ij2-Va-0iS" firstAttribute="trailing" secondItem="aFR-7T-Nfn" secondAttribute="trailing" id="Rlo-Ss-CoN"/>
-                            <constraint firstItem="ij2-Va-0iS" firstAttribute="bottom" secondItem="aFR-7T-Nfn" secondAttribute="bottom" id="YAq-Jn-vzB"/>
-                            <constraint firstItem="aFR-7T-Nfn" firstAttribute="leading" secondItem="ij2-Va-0iS" secondAttribute="leading" id="gsn-6s-GX9"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="WV6-XL-ozQ">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="person.crop.circle.fill.badge.plus" catalog="system" id="Rlg-sq-Qpv"/>
-                    </navigationItem>
-                    <connections>
-                        <segue destination="6io-hY-LDi" kind="show" identifier="ContactsToChat" id="xk4-Wh-LhG"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Nqz-lq-q1P" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3412" y="117"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="QpK-9u-E4c">
             <objects>
@@ -443,12 +458,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jZS-3D-ySu"/>
+        <segue reference="mEv-9F-vPW"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
         <image name="exclamationmark.bubble" catalog="system" width="128" height="110"/>
-        <image name="person.crop.circle.fill.badge.plus" catalog="system" width="128" height="113"/>
         <namedColor name="Button Color">
             <color red="0.42399999499320984" green="0.41200000047683716" blue="0.55299997329711914" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
@@ -458,8 +472,5 @@
         <namedColor name="General Background">
             <color red="0.83099997043609619" green="0.82400000095367432" blue="0.83499997854232788" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

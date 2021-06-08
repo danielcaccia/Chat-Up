@@ -10,7 +10,8 @@ import Foundation
 struct K {
     
     static let appName = "ChatUp!"
-    static let cellIdentifier = "ReusableCell"
+    static let contactCell = "ContactCell"
+    static let chatCellIdentifier = "ChatReusableCell"
     static let cellNibName = "MessageCell"
     static let signUpSegue = "SignUpToContacts"
     static let signInSegue = "SignInToContacts"
@@ -34,6 +35,7 @@ struct K {
         static let emailField = "email"
         static let uidField = "uid"
         
+        static let contactsField = "contacts"
         static let lastField = "lastMessage"
         static let lastAtField = "lastMessageAt"
         static let messagesIdField = "messagesId"

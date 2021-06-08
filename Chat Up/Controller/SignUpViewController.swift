@@ -33,10 +33,9 @@ class SignUpViewController: UIViewController {
                     let user = Auth.auth().currentUser
                     
                     if let userName = self.nameTextField.text, let email = user?.email, let uid = user?.uid {
-                        self.db.collection(K.Fstore.usersCollectionName).addDocument(data: [
+                        self.db.collection(K.Fstore.usersCollectionName).document(uid).setData([
                             K.Fstore.userNameField: userName,
-                            K.Fstore.emailField: email,
-                            K.Fstore.uidField: uid
+                            K.Fstore.emailField: email
                         ]) { error in
                             if let err = error {
                                 print("Error saving data to Firestore: \(err)")
