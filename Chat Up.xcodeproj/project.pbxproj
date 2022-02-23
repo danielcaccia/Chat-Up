@@ -17,6 +17,8 @@
 		87676BCD25D4969400D5DC35 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 87676BCC25D4969400D5DC35 /* IQKeyboardManagerSwift */; };
 		8767AD38266C361E00C707C9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8767AD37266C361E00C707C9 /* User.swift */; };
 		8769F7DA266D7C8A000A9BC1 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8769F7D9266D7C8A000A9BC1 /* ContactsViewController.swift */; };
+		87B89AC827C681A100F62A31 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B89AC727C681A100F62A31 /* Coordinator.swift */; };
+		87B89AD527C6949400F62A31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B89AD427C6949400F62A31 /* ViewController.swift */; };
 		87CE90EA25CA074100B17E63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CE90E925CA074100B17E63 /* AppDelegate.swift */; };
 		87CE90EC25CA074100B17E63 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CE90EB25CA074100B17E63 /* SceneDelegate.swift */; };
 		87CE90EE25CA074100B17E63 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CE90ED25CA074100B17E63 /* WelcomeViewController.swift */; };
@@ -37,6 +39,8 @@
 		8759ACFA25D0325D0022176A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8767AD37266C361E00C707C9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8769F7D9266D7C8A000A9BC1 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		87B89AC727C681A100F62A31 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		87B89AD427C6949400F62A31 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		87CE90E625CA074100B17E63 /* Chat Up.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chat Up.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87CE90E925CA074100B17E63 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87CE90EB25CA074100B17E63 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				8753A16C25D1F222009E44F8 /* Constants.swift */,
+				87B89AC727C681A100F62A31 /* Coordinator.swift */,
 				874302C127C6655F004CC6D5 /* UserSession.swift */,
 			);
 			path = Globals;
@@ -109,6 +114,14 @@
 				8758ADD925D32714003F7E0E /* MessageCell.xib */,
 			);
 			path = MessageCell;
+			sourceTree = "<group>";
+		};
+		87B89AD327C693DB00F62A31 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				87B89AD427C6949400F62A31 /* ViewController.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		87CE90DD25CA074100B17E63 = {
@@ -133,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				874302BF27C6647B004CC6D5 /* Application */,
+				87B89AD327C693DB00F62A31 /* Extensions */,
 				874302C027C66537004CC6D5 /* Globals */,
 				87CE910125CA078C00B17E63 /* Models */,
 				87CE90FF25CA077D00B17E63 /* ViewControllers */,
@@ -306,7 +320,9 @@
 			files = (
 				87CE90EE25CA074100B17E63 /* WelcomeViewController.swift in Sources */,
 				87CE90EA25CA074100B17E63 /* AppDelegate.swift in Sources */,
+				87B89AC827C681A100F62A31 /* Coordinator.swift in Sources */,
 				87CE90EC25CA074100B17E63 /* SceneDelegate.swift in Sources */,
+				87B89AD527C6949400F62A31 /* ViewController.swift in Sources */,
 				874302C227C6655F004CC6D5 /* UserSession.swift in Sources */,
 				87CE910D25CA0B7F00B17E63 /* SignInViewController.swift in Sources */,
 				8769F7DA266D7C8A000A9BC1 /* ContactsViewController.swift in Sources */,
