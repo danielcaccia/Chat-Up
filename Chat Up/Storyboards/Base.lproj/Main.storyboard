@@ -423,9 +423,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Xoo-d4-OKZ">
-                        <barButtonItem key="rightBarButtonItem" title="Add Contact" image="square.and.pencil" catalog="system" id="97B-0n-eCy" userLabel="New Conversation">
+                        <barButtonItem key="rightBarButtonItem" title="Add Contact" image="square.and.pencil" catalog="system" id="97B-0n-eCy" userLabel="New Chat">
                             <connections>
-                                <action selector="newConversationButtonPressed:" destination="2eq-7g-Qzy" id="2Z7-3d-fWe"/>
+                                <action selector="newChatButtonPressed:" destination="2eq-7g-Qzy" id="fj8-HX-QQS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

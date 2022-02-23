@@ -14,6 +14,8 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
     
+    var userSession: UserSession!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,7 +28,9 @@ class SignInViewController: UIViewController {
                 if let err = error {
                     self.showAlert(with: err.localizedDescription)
                     self.passwordTextField.text = ""
-                } else {                  
+                } else {
+                    self.userSession.fetchUserSession()
+                    
                     self.performSegue(withIdentifier: K.signInSegue, sender: self)
                 }
             }

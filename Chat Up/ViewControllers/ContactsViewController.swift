@@ -24,7 +24,7 @@ class ContactsViewController: UITableViewController {
         fetchContacts()
     }
     
-    @IBAction func newConversationButtonPressed(_ sender: UIBarButtonItem) {
+    @IBAction func newChatButtonPressed(_ sender: UIBarButtonItem) {
     }
     
     @IBAction func newGroupButtonPressed(_ sender: UIButton) {

@@ -14,12 +14,12 @@ struct User: Identifiable, Codable {
     let firstName: String
     let lastName: String
     let email: String
-    let contacts: [Contact]?
-    let chats: [Chat]?
+    let contacts: [String]?
+    let chats: [String]?
     
 }
 
-struct Contact: Codable {
+struct Contact {
     
     let uid: String
     let firstName: String

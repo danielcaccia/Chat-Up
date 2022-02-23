@@ -19,16 +19,18 @@ struct K {
     static let alignConstraintId = "bubbleAlignment"
     
     struct BrandColors {
+        
         static let btnColor = "Button Color"
         static let chatBG = "Chat Background"
         static let chatBal = "Chat Baloons"
         static let msgText = "Message Text"
         static let genBG = "General Background"
+        
     }
     
     struct Fstore {
+        
         static let usersCollectionName = "users"
-        static let chatsCollectionName = "chats"
         static let messagesCollectionName = "messages"
         
         static let firstNameField = "firstName"
@@ -44,6 +46,7 @@ struct K {
         static let senderField = "sender"
         static let bodyField = "body"
         static let dateField = "messageAt"
+        
     }
     
 }
