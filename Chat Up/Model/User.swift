@@ -6,35 +6,23 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 
-struct User {
+struct User: Identifiable, Codable {
     
-    let userName: String
+    @DocumentID var id: String?
+    let firstName: String
+    let lastName: String
     let email: String
     let contacts: [Contact]?
-    
-    init(_ userName: String, _ email: String, _ contacts: [Contact]?) {
-        self.userName = userName
-        self.email = email
-        self.contacts = contacts
-    }
+    let chats: [Chat]?
     
 }
 
-struct Contact {
+struct Contact: Codable {
     
-    let contactId: String
-    let userName: String
-    let lastMessageAt: Double?
-    let lastMessage: String?
-    let messagesId: String?
-    
-    init(_ contactId: String, _ userName: String, _ lastMessageAt: Double?, _ lastMessage: String?, _ messagesId: String?) {
-        self.contactId = contactId
-        self.userName = userName
-        self.lastMessageAt = lastMessageAt
-        self.lastMessage = lastMessage
-        self.messagesId = messagesId
-    }
+    let uid: String
+    let firstName: String
+    let lastName: String
     
 }

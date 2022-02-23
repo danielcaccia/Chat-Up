@@ -10,10 +10,14 @@ import Firebase
 
 class SignUpViewController: UIViewController {
 
-    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
+    
+    @IBOutlet weak var warningView: UIView!
+    @IBOutlet weak var warningLabel: UILabel!
     
     var db = Firestore.firestore()
     
@@ -32,9 +36,10 @@ class SignUpViewController: UIViewController {
                 } else {
                     let user = Auth.auth().currentUser
                     
-                    if let userName = self.nameTextField.text, let email = user?.email, let uid = user?.uid {
+                    if let firstName = self.firstNameTextField.text, let lastName = self.lastNameTextField.text, let email = user?.email, let uid = user?.uid {
                         self.db.collection(K.Fstore.usersCollectionName).document(uid).setData([
-                            K.Fstore.userNameField: userName,
+                            K.Fstore.firstNameField: firstName,
+                            K.Fstore.lastNameField: lastName,
                             K.Fstore.emailField: email
                         ]) { error in
                             if let err = error {

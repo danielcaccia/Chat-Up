@@ -31,7 +31,8 @@ struct K {
         static let chatsCollectionName = "chats"
         static let messagesCollectionName = "messages"
         
-        static let userNameField = "userName"
+        static let firstNameField = "firstName"
+        static let lastNameField = "lastName"
         static let emailField = "email"
         static let uidField = "uid"
         

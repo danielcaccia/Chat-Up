@@ -6,8 +6,16 @@
 //
 
 import Foundation
+import FirebaseFirestoreSwift
 
-struct Message {
+struct Chat: Identifiable, Codable {
+    
+    @DocumentID var id: String?
+    let messages: [Message]?
+    
+}
+
+struct Message: Codable {
     
     let sender: String
     let body: String
