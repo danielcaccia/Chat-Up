@@ -19,19 +19,25 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var warningView: UIView!
     @IBOutlet weak var warningLabel: UILabel!
     
+    var userSession = UserSession()
     var db = Firestore.firestore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        warningView.isHidden = true
+        
         setButtonLayout(signUpButton)
     }
-    
+
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
+        warningView.isHidden = true
+        
         if let email = emailTextField.text, let password = passwordTextField.text {
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
                 if let err = error {
-                    self.showAlert(with: err.localizedDescription)
+                    self.warningLabel.text = err.localizedDescription
+                    self.warningView.isHidden = false
                     self.passwordTextField.text = ""
                 } else {
                     let user = Auth.auth().currentUser
@@ -49,19 +55,13 @@ class SignUpViewController: UIViewController {
                             }
                         }
                         
-                        self.performSegue(withIdentifier: K.signUpSegue, sender: self)
+                        self.userSession.fetchUserSession()
+                        
+                        Coordinator.shared.presentNewController(currentViewController: self, storyboardName: K.StoryboardIDs.mainStoryboard, viewControllerID: K.StoryboardIDs.contactsView, isModal: false, optionalObject: self.userSession)
                     }
                 }
             }
         }
-    }
-    
-    func showAlert(with error: String) {
-        let alert = UIAlertController(title: "Error", message: error, preferredStyle: UIAlertController.Style.alert)
-        
-        alert.addAction(UIAlertAction(title: "Try Again", style: UIAlertAction.Style.default, handler: nil))
-        
-        self.present(alert, animated: true, completion: nil)
     }
     
     func setButtonLayout(_ button: UIButton) {

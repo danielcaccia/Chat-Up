@@ -13,7 +13,7 @@ class Coordinator: NSObject {
     
     static let shared = Coordinator()
 
-    func presentNewController(currentViewController: UIViewController, storyboardName: String, viewControllerID: String, isModal: Bool?, optionalObject: Any?) {
+    func presentNewController(currentViewController: UIViewController, storyboardName: String, viewControllerID: String, isModal: Bool, optionalObject: Any?) {
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: viewControllerID)
         
@@ -21,7 +21,7 @@ class Coordinator: NSObject {
             viewController.optionalObject = optional
         }
         
-        if isModal ?? false {
+        if isModal {
             viewController.modalPresentationStyle = .fullScreen
             currentViewController.present(viewController, animated: true, completion: nil)
         } else {

@@ -21,7 +21,7 @@ class ContactsViewController: UITableViewController {
         navigationItem.title = "Contacts"
         tableView.separatorStyle = .none
         
-        fetchContacts()
+        
     }
     
     @IBAction func newChatButtonPressed(_ sender: UIBarButtonItem) {
@@ -46,11 +46,6 @@ class ContactsViewController: UITableViewController {
                     return
                 }
                 
-                self.contacts = hasContacts
-//                self.contacts.sort {
-//                    $0.lastMessageAt ?? 0 > $1.lastMessageAt ?? 0
-//                }
-                
                 self.tableView.reloadData()
             }
         }
@@ -58,7 +53,7 @@ class ContactsViewController: UITableViewController {
     
     func saveContact(_ contact: Contact) {
         do {
-            try db.collection("users").document(currentUser!.uid).setData(from: contact)
+//            try db.collection("users").document(currentUser!.uid).setData(from: contact)
         } catch let error {
             print("Error writing contact to Firestore: \(error)")
         }

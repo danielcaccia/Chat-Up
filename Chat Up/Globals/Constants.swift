@@ -18,6 +18,13 @@ struct K {
     static let contactsSegue = "ContactsToChat"
     static let alignConstraintId = "bubbleAlignment"
     
+    struct StoryboardIDs {
+        
+        static let mainStoryboard = "Main"
+        static let contactsView = "ContactsView"
+        
+    }
+    
     struct BrandColors {
         
         static let btnColor = "Button Color"

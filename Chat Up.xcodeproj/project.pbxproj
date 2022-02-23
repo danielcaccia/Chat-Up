@@ -82,6 +82,8 @@
 			isa = PBXGroup;
 			children = (
 				87CE90F225CA074200B17E63 /* Assets.xcassets */,
+				87CE90F725CA074200B17E63 /* Info.plist */,
+				8759ACFA25D0325D0022176A /* GoogleService-Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -91,8 +93,6 @@
 			children = (
 				87CE90E925CA074100B17E63 /* AppDelegate.swift */,
 				87CE90EB25CA074100B17E63 /* SceneDelegate.swift */,
-				87CE90F725CA074200B17E63 /* Info.plist */,
-				8759ACFA25D0325D0022176A /* GoogleService-Info.plist */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -481,7 +481,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 92RWZYGPSA;
-				INFOPLIST_FILE = "Chat Up/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Chat Up/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -501,7 +501,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 92RWZYGPSA;
-				INFOPLIST_FILE = "Chat Up/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Chat Up/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
