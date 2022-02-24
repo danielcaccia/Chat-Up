@@ -468,7 +468,7 @@
         <!--Chat View Controller-->
         <scene sceneID="xxA-eT-kRB">
             <objects>
-                <viewController id="6io-hY-LDi" customClass="ChatViewController" customModule="Chat_Up" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatView" id="6io-hY-LDi" customClass="ChatViewController" customModule="Chat_Up" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pez-g9-HIy">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

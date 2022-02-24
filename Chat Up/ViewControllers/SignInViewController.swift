@@ -17,8 +17,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var warningView: UIView!
     @IBOutlet weak var warningLabel: UILabel!
     
-    var userSession = UserSession()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,9 +35,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                     self.warningView.isHidden = false
                     self.passwordTextField.text = ""
                 } else {
-                    self.userSession.fetchUserSession()
-                    
-                    Coordinator.shared.presentNewController(currentViewController: self, storyboardName: K.StoryboardIDs.mainStoryboard, viewControllerID: K.StoryboardIDs.contactsView, isModal: false, optionalObject: self.userSession)
+                    UserSession.shared.fetchUserSession()
+                    Coordinator.shared.presentNewController(currentViewController: self, storyboardName: K.StoryboardIDs.mainStoryboard, viewControllerID: K.StoryboardIDs.contactsView, isModal: false, optionalObject: nil)
                 }
             }
         }

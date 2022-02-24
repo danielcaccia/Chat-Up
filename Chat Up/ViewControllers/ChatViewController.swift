@@ -43,7 +43,7 @@ class ChatViewController: UIViewController {
                            let body = doc.data()[K.Fstore.bodyField] as? String {
                             
                             print(doc.data())
-                            self.messages.append(Message(sender, body, Date().timeIntervalSince1970))
+                            self.messages.append(Message(with: sender, body, Date().timeIntervalSince1970))
                             
                             DispatchQueue.main.async {
                                 self.tableView.reloadData()

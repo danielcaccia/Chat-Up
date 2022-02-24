@@ -21,7 +21,7 @@ struct Message: Codable {
     let body: String
     let messageAt: Double
     
-    init (_ sender: String, _ body: String, _ messageAt: Double) {
+    init(with sender: String, _ body: String, _ messageAt: Double) {
         self.sender = sender
         self.body = body
         self.messageAt = messageAt

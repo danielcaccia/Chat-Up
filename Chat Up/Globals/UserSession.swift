@@ -15,8 +15,10 @@ class UserSession {
     var firstName = ""
     var lastName = ""
     var email = ""
-    var contacts: [Contact]? = nil
-    var chats: [Chat]? = nil
+    var contacts = [Contact]()
+    var chats = [Chat]()
+    
+    static let shared = UserSession()
     
     func fetchUserSession() {
         let db = Firestore.firestore()
@@ -37,19 +39,25 @@ class UserSession {
                 
                 if let contactList = document.contacts {
                     for contact in contactList {
-                        db.collection(K.Fstore.usersCollectionName).document(contact).addSnapshotListener { (querySnapshot, error) in
+                        db.collection(K.Fstore.usersCollectionName).document(contact.uid).addSnapshotListener { (querySnapshot, error) in
                             
                             self.contacts = []
                             
                             if let err = error {
                                 print("Error retrieving data from Firestore: \(err)")
                             } else {
-                                guard let document = try! querySnapshot?.data(as: User.self) else {
+                                guard let document = try! querySnapshot?.data(as: Contact.self) else {
                                     print("Error parsing data from Firestore")
                                     return
                                 }
                                 
-                                self.contacts?.append(Contact(uid: contact, firstName: document.firstName, lastName: document.lastName))
+                                let uid = document.uid
+                                let firstName = document.firstName
+                                let lastName = document.lastName
+                                let chat = document.chat
+                                let lastMessage = document.lastMessage
+                                
+                                self.contacts.append(Contact(with: uid, firstName, lastName, chat, lastMessage))
                             }
                         }
                     }
@@ -69,7 +77,7 @@ class UserSession {
                                     return
                                 }
                                 
-                                self.chats?.append(document)
+                                self.chats.append(document)
                             }
                         }
                     }

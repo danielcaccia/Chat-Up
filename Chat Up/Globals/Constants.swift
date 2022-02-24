@@ -10,6 +10,7 @@ import Foundation
 struct K {
     
     static let appName = "ChatUp!"
+    static let headerCell = "HeaderCell"
     static let contactCell = "ContactCell"
     static let chatCellIdentifier = "ChatReusableCell"
     static let cellNibName = "MessageCell"
@@ -22,6 +23,7 @@ struct K {
         
         static let mainStoryboard = "Main"
         static let contactsView = "ContactsView"
+        static let chatView = "ChatView"
         
     }
     

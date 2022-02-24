@@ -19,7 +19,6 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var warningView: UIView!
     @IBOutlet weak var warningLabel: UILabel!
     
-    var userSession = UserSession()
     var db = Firestore.firestore()
     
     override func viewDidLoad() {
@@ -55,9 +54,8 @@ class SignUpViewController: UIViewController {
                             }
                         }
                         
-                        self.userSession.fetchUserSession()
-                        
-                        Coordinator.shared.presentNewController(currentViewController: self, storyboardName: K.StoryboardIDs.mainStoryboard, viewControllerID: K.StoryboardIDs.contactsView, isModal: false, optionalObject: self.userSession)
+                        UserSession.shared.fetchUserSession()
+                        Coordinator.shared.presentNewController(currentViewController: self, storyboardName: K.StoryboardIDs.mainStoryboard, viewControllerID: K.StoryboardIDs.contactsView, isModal: false, optionalObject: nil)
                     }
                 }
             }
