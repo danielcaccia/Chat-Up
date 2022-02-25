@@ -47,23 +47,19 @@ class ContactsViewController: UITableViewController {
                         errorLabel.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 20).isActive = true
                     } else {
                         if !querySnapshot!.documents.isEmpty {
-                            if let user = try! querySnapshot!.documents.first!.data(as: User.self) {
-                                let uid = user.id!
-                                let firstName = user.firstName
-                                let lastName = user.lastName
+                            if let safeDocument = try! querySnapshot!.documents.first!.data(as: User.self) {
+                                let uid = safeDocument.id!
+                                let firstName = safeDocument.firstName
+                                let lastName = safeDocument.lastName
+                                let contact = Contact(with: uid, firstName, lastName, nil, nil)
                                 
-                                UserSession.shared.contacts.append(Contact(with: uid, firstName, lastName, nil, nil))
+                                UserSession.shared.contacts.append(contact)
                                 
-                                self.db.collection(K.Fstore.usersCollectionName).addDocument(data: [
-                                    K.Fstore.contactsField: [K.Fstore.uidField: uid,
-                                                             K.Fstore.firstNameField: firstName,
-                                                             K.Fstore.lastNameField: lastName]
-                                ]) { (error) in
-                                    if let err = error {
-                                        print("Error saving data to Firestore: \(err)")
-                                    } else {
-                                        print("Data saved to Firestore.")
-                                    }
+                                do {
+                                    try self.db.collection(K.Fstore.usersCollectionName).document(self.currentUser!.uid).setData(from: contact)
+                                    print("Data saved to Firestore.")
+                                } catch {
+                                    print("Error saving data to Firestore")
                                 }
                             }
                         }
@@ -91,7 +87,7 @@ class ContactsViewController: UITableViewController {
 //MARK: - TableView Datasource Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return UserSession.shared.contacts.count
+        return UserSession.shared.contacts.count + 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -101,7 +97,7 @@ class ContactsViewController: UITableViewController {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: K.contactCell, for: indexPath)
-            let contact = UserSession.shared.contacts[indexPath.row]
+            let contact = UserSession.shared.contacts[indexPath.row - 1]
             
             cell.textLabel?.text = "\(contact.firstName) \(contact.lastName)"
             cell.detailTextLabel?.text = contact.lastMessage ?? ""

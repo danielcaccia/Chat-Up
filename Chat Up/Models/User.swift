@@ -14,8 +14,17 @@ struct User: Identifiable, Codable {
     let firstName: String
     let lastName: String
     let email: String
-    let contacts: [Contact]?
+    var contacts: [Contact]?
     let chats: [String]?
+    
+    init(with id: String, _ firstName: String, _ lastName: String, _ email: String, _ contacts: [Contact]?, _ chats: [String]?) {
+        self.id = id
+        self.firstName = firstName
+        self.lastName = lastName
+        self.email = email
+        self.contacts = contacts
+        self.chats = chats
+    }
     
 }
 
