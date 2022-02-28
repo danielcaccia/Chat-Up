@@ -23,9 +23,11 @@ class ContactsViewController: UITableViewController {
     }
     
     @IBAction func newChatButtonPressed(_ sender: UIBarButtonItem) {
+        // Create new "Chats" document and save it on UserSession within the correct contact
     }
     
     @IBAction func newGroupButtonPressed(_ sender: UIButton) {
+        // TBD
     }
     
     @IBAction func addContactButtonPressed(_ sender: UIButton) {
@@ -51,17 +53,22 @@ class ContactsViewController: UITableViewController {
                                 let uid = safeDocument.id!
                                 let firstName = safeDocument.firstName
                                 let lastName = safeDocument.lastName
-                                let contact = Contact(with: uid, firstName, lastName, nil, nil)
+                                let contact = Contact(with: uid, firstName, lastName, nil)
                                 
                                 UserSession.shared.contacts.append(contact)
                                 
-                                do {
-                                    try self.db.collection(K.Fstore.usersCollectionName).document(self.currentUser!.uid).setData(from: contact)
-                                    print("Data saved to Firestore.")
-                                } catch {
-                                    print("Error saving data to Firestore")
+                                self.db.collection(K.Fstore.usersCollectionName).document(self.currentUser!.uid).updateData([
+                                    K.Fstore.contactsField: [uid: ""]
+                                ]) { err in
+                                    if let err = error {
+                                        print("Error saving data to Firestore: \(err)")
+                                    } else {
+                                        print("Data saved to Firestore.")
+                                    }
                                 }
                             }
+                        } else {
+                            // Alert there's no user with that e-mail
                         }
                         
                         DispatchQueue.main.async {
@@ -87,7 +94,7 @@ class ContactsViewController: UITableViewController {
 //MARK: - TableView Datasource Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return UserSession.shared.contacts.count + 1
+        return UserSession.shared.chats.count + 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -96,11 +103,12 @@ class ContactsViewController: UITableViewController {
             
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: K.contactCell, for: indexPath)
-            let contact = UserSession.shared.contacts[indexPath.row - 1]
+            let cell = tableView.dequeueReusableCell(withIdentifier: K.chatCell, for: indexPath)
+            let chat = UserSession.shared.chats[indexPath.row - 1]
+            let contact = UserSession.shared.contacts.filter { return chat.id == $0.chat }.first!
             
             cell.textLabel?.text = "\(contact.firstName) \(contact.lastName)"
-            cell.detailTextLabel?.text = contact.lastMessage ?? ""
+            cell.detailTextLabel?.text = chat.messages?.last?.body ?? ""
             
             return cell
         }

@@ -11,8 +11,8 @@ struct K {
     
     static let appName = "ChatUp!"
     static let headerCell = "HeaderCell"
-    static let contactCell = "ContactCell"
-    static let chatCellIdentifier = "ChatReusableCell"
+    static let chatCell = "ChatCell"
+    static let chatReusableCell = "ChatReusableCell"
     static let cellNibName = "MessageCell"
     static let signUpSegue = "SignUpToContacts"
     static let signInSegue = "SignInToContacts"

@@ -17,6 +17,7 @@
 		87676BCD25D4969400D5DC35 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 87676BCC25D4969400D5DC35 /* IQKeyboardManagerSwift */; };
 		8767AD38266C361E00C707C9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8767AD37266C361E00C707C9 /* User.swift */; };
 		8769F7DA266D7C8A000A9BC1 /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8769F7D9266D7C8A000A9BC1 /* ContactsViewController.swift */; };
+		87A7148827CA885800AA09F5 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A7148727CA885800AA09F5 /* Contact.swift */; };
 		87B89AC827C681A100F62A31 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B89AC727C681A100F62A31 /* Coordinator.swift */; };
 		87B89AD527C6949400F62A31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87B89AD427C6949400F62A31 /* ViewController.swift */; };
 		87CE90EA25CA074100B17E63 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CE90E925CA074100B17E63 /* AppDelegate.swift */; };
@@ -39,6 +40,7 @@
 		8759ACFA25D0325D0022176A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8767AD37266C361E00C707C9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8769F7D9266D7C8A000A9BC1 /* ContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
+		87A7148727CA885800AA09F5 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		87B89AC727C681A100F62A31 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		87B89AD427C6949400F62A31 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		87CE90E625CA074100B17E63 /* Chat Up.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chat Up.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +184,7 @@
 			children = (
 				87A2EE2427C6300800946B0B /* MessageCell */,
 				8758ADD525D32191003F7E0E /* Chat.swift */,
+				87A7148727CA885800AA09F5 /* Contact.swift */,
 				8767AD37266C361E00C707C9 /* User.swift */,
 			);
 			path = Models;
@@ -330,6 +333,7 @@
 				8758ADD625D32191003F7E0E /* Chat.swift in Sources */,
 				87CE911025CA0BA300B17E63 /* ChatViewController.swift in Sources */,
 				87CE910925CA0A5500B17E63 /* SignUpViewController.swift in Sources */,
+				87A7148827CA885800AA09F5 /* Contact.swift in Sources */,
 				8758ADDA25D32714003F7E0E /* MessageCell.swift in Sources */,
 				8767AD38266C361E00C707C9 /* User.swift in Sources */,
 			);

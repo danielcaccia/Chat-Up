@@ -13,6 +13,11 @@ struct Chat: Identifiable, Codable {
     @DocumentID var id: String?
     let messages: [Message]?
     
+    init(with id: String, _ messages: [Message]?) {
+        self.id = id
+        self.messages = messages
+    }
+    
 }
 
 struct Message: Codable {

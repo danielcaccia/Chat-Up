@@ -38,46 +38,56 @@ class UserSession {
                 self.email = document.email
                 
                 if let contactList = document.contacts {
+                    // Fetch Contact info
                     for contact in contactList {
-                        db.collection(K.Fstore.usersCollectionName).document(contact.uid).addSnapshotListener { (querySnapshot, error) in
+                        db.collection(K.Fstore.usersCollectionName).document(contact.key).addSnapshotListener { (querySnapshot, error) in
                             
                             self.contacts = []
                             
                             if let err = error {
                                 print("Error retrieving data from Firestore: \(err)")
                             } else {
-                                guard let document = try! querySnapshot?.data(as: Contact.self) else {
+                                guard let document = try! querySnapshot?.data(as: User.self) else {
                                     print("Error parsing data from Firestore")
                                     return
                                 }
                                 
-                                let uid = document.uid
+                                let uid = contact.key
                                 let firstName = document.firstName
                                 let lastName = document.lastName
-                                let chat = document.chat
-                                let lastMessage = document.lastMessage
+                                let chatID = contact.value
                                 
-                                self.contacts.append(Contact(with: uid, firstName, lastName, chat, lastMessage))
-                            }
-                        }
-                    }
-                }
-                
-                if let chatList = document.chats {
-                    for chat in chatList {
-                        db.collection(K.Fstore.messagesCollectionName).document(chat).addSnapshotListener { (querySnapshot, error) in
-                            
-                            self.chats = []
-                            
-                            if let err = error {
-                                print("Error retrieving data from Firestore: \(err)")
-                            } else {
-                                guard let document = try! querySnapshot?.data(as: Chat.self) else {
-                                    print("Error parsing data from Firestore")
-                                    return
+                                self.contacts.append(Contact(with: uid, firstName, lastName, chatID))
+                                
+                                // Fetch Chat info
+                                if chatID != "" {
+                                    var messages = [Message]()
+                                    
+                                    db.collection(K.Fstore.messagesCollectionName).document(chatID).addSnapshotListener { (querySnapshot, error) in
+                                        if let err = error {
+                                            print("Error retrieving data from Firestore: \(err)")
+                                        } else {
+                                            guard let document = try! querySnapshot?.data(as: Chat.self) else {
+                                                print("Error parsing data from Firestore")
+                                                return
+                                            }
+                                            
+                                            
+                                            
+                                            if let safeMessages = document.messages {
+                                                for message in safeMessages {
+                                                    let sender = message.sender
+                                                    let body = message.body
+                                                    let messaggeAt = message.messageAt
+                                                    
+                                                    messages.append(Message(with: sender, body, messaggeAt))
+                                                }
+                                            }
+                                        }
+                                    }
+                                    
+                                    self.chats.append(Chat(with: chatID, messages))
                                 }
-                                
-                                self.chats.append(document)
                             }
                         }
                     }

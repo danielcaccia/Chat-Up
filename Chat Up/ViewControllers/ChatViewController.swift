@@ -24,7 +24,7 @@ class ChatViewController: UIViewController {
         
         navigationItem.title = "ChatUp!"
         
-        tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.chatCellIdentifier)
+        tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.chatReusableCell)
         
         loadMessages()
     }
@@ -102,7 +102,7 @@ extension ChatViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let message = messages[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.chatCellIdentifier, for: indexPath) as! MessageCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.chatReusableCell, for: indexPath) as! MessageCell
         
         cell.messageLabel.text = message.body
         
