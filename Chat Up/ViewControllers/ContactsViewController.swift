@@ -54,18 +54,13 @@ class ContactsViewController: UITableViewController {
                                 let firstName = safeDocument.firstName
                                 let lastName = safeDocument.lastName
                                 let contact = Contact(with: uid, firstName, lastName, nil)
+                                let documentRef = self.db.collection(K.Fstore.usersCollectionName).document(self.currentUser!.uid)
                                 
                                 UserSession.shared.contacts.append(contact)
                                 
-                                self.db.collection(K.Fstore.usersCollectionName).document(self.currentUser!.uid).updateData([
-                                    K.Fstore.contactsField: [uid: ""]
-                                ]) { err in
-                                    if let err = error {
-                                        print("Error saving data to Firestore: \(err)")
-                                    } else {
-                                        print("Data saved to Firestore.")
-                                    }
-                                }
+                                documentRef.updateData([
+                                    K.Fstore.contactsField: FieldValue.arrayUnion([[uid: ""]])
+                                    ])
                             }
                         } else {
                             // Alert there's no user with that e-mail

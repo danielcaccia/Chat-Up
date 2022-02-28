@@ -132,7 +132,7 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qd3-Xg-9EE" userLabel="Sign In Button">
-                                <rect key="frame" x="105" y="745" width="180" height="50"/>
+                                <rect key="frame" x="105" y="530" width="180" height="50"/>
                                 <color key="backgroundColor" name="Button Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="4Hc-bf-4JC"/>
@@ -212,11 +212,11 @@
                         <color key="backgroundColor" name="General Background"/>
                         <constraints>
                             <constraint firstItem="Qd3-Xg-9EE" firstAttribute="centerX" secondItem="tuW-Ue-Dkm" secondAttribute="centerX" id="5QF-Cm-2b5"/>
-                            <constraint firstItem="FcL-g3-rfm" firstAttribute="bottom" secondItem="Qd3-Xg-9EE" secondAttribute="bottom" constant="15" id="Fea-JP-PN5"/>
                             <constraint firstItem="O9H-uc-1CJ" firstAttribute="centerX" secondItem="tuW-Ue-Dkm" secondAttribute="centerX" id="GR9-z6-Gh1"/>
                             <constraint firstItem="9XW-8K-5bb" firstAttribute="centerX" secondItem="tuW-Ue-Dkm" secondAttribute="centerX" id="QFm-0y-kcF"/>
                             <constraint firstItem="xqp-dj-3zD" firstAttribute="top" secondItem="FcL-g3-rfm" secondAttribute="top" constant="15" id="WoT-l4-BHi"/>
                             <constraint firstItem="O9H-uc-1CJ" firstAttribute="width" secondItem="9XW-8K-5bb" secondAttribute="width" id="YbE-0d-UtU"/>
+                            <constraint firstItem="Qd3-Xg-9EE" firstAttribute="top" secondItem="O9H-uc-1CJ" secondAttribute="bottom" constant="20" id="aWW-Rb-fen"/>
                             <constraint firstItem="xqp-dj-3zD" firstAttribute="centerX" secondItem="tuW-Ue-Dkm" secondAttribute="centerX" id="ay6-SA-Ec5"/>
                             <constraint firstItem="O9H-uc-1CJ" firstAttribute="top" secondItem="9XW-8K-5bb" secondAttribute="bottom" constant="20" id="gfR-GV-Ovo"/>
                             <constraint firstItem="9XW-8K-5bb" firstAttribute="centerY" secondItem="tuW-Ue-Dkm" secondAttribute="centerY" id="oA9-nf-JLH"/>
@@ -335,7 +335,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mVi-gf-xKu" userLabel="Sign Up Button">
-                                <rect key="frame" x="105" y="745" width="180" height="50"/>
+                                <rect key="frame" x="105" y="600" width="180" height="50"/>
                                 <color key="backgroundColor" name="Button Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Rm6-zh-sQG"/>
@@ -353,9 +353,9 @@
                         <viewLayoutGuide key="safeArea" id="JrZ-xa-2o6"/>
                         <color key="backgroundColor" name="General Background"/>
                         <constraints>
-                            <constraint firstItem="JrZ-xa-2o6" firstAttribute="bottom" secondItem="mVi-gf-xKu" secondAttribute="bottom" constant="15" id="2SJ-9w-NJo"/>
                             <constraint firstItem="3I8-Hi-kYH" firstAttribute="centerX" secondItem="OgF-6H-OV2" secondAttribute="centerX" id="33Q-Dk-qxK"/>
                             <constraint firstItem="Tx1-L6-tKP" firstAttribute="centerX" secondItem="OgF-6H-OV2" secondAttribute="centerX" id="HFe-r5-6Ef"/>
+                            <constraint firstItem="mVi-gf-xKu" firstAttribute="top" secondItem="3I8-Hi-kYH" secondAttribute="bottom" constant="40" id="HVI-v8-veC"/>
                             <constraint firstItem="Tx1-L6-tKP" firstAttribute="top" secondItem="JrZ-xa-2o6" secondAttribute="top" constant="15" id="Umn-gt-7Ie"/>
                             <constraint firstItem="ivU-Mw-IAe" firstAttribute="centerY" secondItem="OgF-6H-OV2" secondAttribute="centerY" id="b66-Ga-Ebh"/>
                             <constraint firstItem="mVi-gf-xKu" firstAttribute="centerX" secondItem="OgF-6H-OV2" secondAttribute="centerX" id="dUB-Hz-hS7"/>
@@ -564,7 +564,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mEv-9F-vPW"/>
+        <segue reference="GmR-FQ-LoL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>

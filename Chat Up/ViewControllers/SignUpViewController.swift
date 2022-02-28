@@ -29,6 +29,14 @@ class SignUpViewController: UIViewController {
         setButtonLayout(signUpButton)
     }
 
+    // To be uncommented after tests
+//    override func viewWillAppear(_ animated: Bool) {
+//        firstNameTextField.text = ""
+//        lastNameTextField.text = ""
+//        emailTextField.text = ""
+//        passwordTextField.text = ""
+//    }
+    
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
         warningView.isHidden = true
         

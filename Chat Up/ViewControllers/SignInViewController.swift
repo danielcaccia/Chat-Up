@@ -25,6 +25,12 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         setButtonLayout(signInButton)
     }
     
+    // To be uncommented after tests
+//    override func viewWillAppear(_ animated: Bool) {
+//        emailTextField.text = ""
+//        passwordTextField.text = ""
+//    }
+    
     @IBAction func signInButtonPressed(_ sender: UIButton) {
         warningView.isHidden = true
         

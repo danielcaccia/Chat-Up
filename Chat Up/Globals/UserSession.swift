@@ -28,7 +28,7 @@ class UserSession {
             if let error = error {
                 print("Error retrieving data from Firestore: \(error)")
             } else {
-                guard let document = try! querySnapshot?.data(as: User.self) else {
+                guard let document = try? querySnapshot?.data(as: User.self) else {
                     print("Error parsing data from Firestore")
                     return
                 }
