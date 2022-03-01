@@ -20,15 +20,16 @@ class UserSession {
     
     static let shared = UserSession()
     
-    func fetchUserSession() {
+    func fetchUserSession() -> Void {
         let db = Firestore.firestore()
         let currentUser = Auth.auth().currentUser
+        let documentRef = db.collection(K.Fstore.usersCollectionName).document(currentUser!.uid)
         
-        db.collection(K.Fstore.usersCollectionName).document(currentUser!.uid).addSnapshotListener { (querySnapshot, error) in
+        documentRef.getDocument { documentSnapshot, error in
             if let error = error {
                 print("Error retrieving data from Firestore: \(error)")
             } else {
-                guard let document = try? querySnapshot?.data(as: User.self) else {
+                guard let document = try? documentSnapshot?.data(as: User.self) else {
                     print("Error parsing data from Firestore")
                     return
                 }
@@ -38,16 +39,15 @@ class UserSession {
                 self.email = document.email
                 
                 if let contactList = document.contacts {
+                    self.contacts = []
+                    
                     // Fetch Contact info
                     for contact in contactList {
-                        db.collection(K.Fstore.usersCollectionName).document(contact.key).addSnapshotListener { (querySnapshot, error) in
-                            
-                            self.contacts = []
-                            
+                        db.collection(K.Fstore.usersCollectionName).document(contact.key).addSnapshotListener { querySnapshot, error in
                             if let err = error {
                                 print("Error retrieving data from Firestore: \(err)")
                             } else {
-                                guard let document = try! querySnapshot?.data(as: User.self) else {
+                                guard let document = try? querySnapshot?.data(as: User.self) else {
                                     print("Error parsing data from Firestore")
                                     return
                                 }
