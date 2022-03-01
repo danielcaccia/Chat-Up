@@ -11,26 +11,29 @@ class MessageCell: UITableViewCell {
 
     @IBOutlet weak var messageBubble: UIView!
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var leftConstraint: NSLayoutConstraint!
+    @IBOutlet weak var rightConstraint: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         roundBorders()
-        setBubbleAlignment()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    func config(message: String, isSender: Bool) {
+        messageLabel.text = message
+        
+        if isSender {
+            leftConstraint.isActive = false
+        } else {
+            rightConstraint.isActive = false
+        }
     }
     
     func roundBorders() {
         self.messageBubble.layer.cornerRadius = 15
         self.messageBubble.clipsToBounds = true
         self.messageBubble.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner, .layerMinXMaxYCorner]
-    }
-    
-    func setBubbleAlignment() {
-//        NSLayoutConstraint(item: messageBubble!, attribute: .centerX, relatedBy: .equal, toItem: superview?.centerXAnchor, attribute: .trailing, multiplier: 1, constant: 0)
     }
     
 }

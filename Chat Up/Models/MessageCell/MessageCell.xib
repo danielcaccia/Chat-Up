@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChatReusableCell" rowHeight="165" id="KGk-i7-Jjw" customClass="MessageCell" customModule="Chat_Up" customModuleProvider="target">
+        <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MessageBubbleCell" rowHeight="165" id="KGk-i7-Jjw" customClass="MessageCell" customModule="Chat_Up" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="307" height="165"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -19,10 +19,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eoi-Ys-HnA">
-                        <rect key="frame" x="129" y="10" width="49" height="145"/>
+                        <rect key="frame" x="10" y="10" width="287" height="145"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="text" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpU-39-dIv">
-                                <rect key="frame" x="12" y="10" width="29" height="125"/>
+                                <rect key="frame" x="12" y="10" width="267" height="125"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="Message Text"/>
                                 <nil key="highlightedColor"/>
@@ -38,16 +38,19 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Eoi-Ys-HnA" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" identifier="bubbleAlignment" id="9ai-IA-lEG"/>
+                    <constraint firstItem="Eoi-Ys-HnA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="2HV-nW-QK5"/>
                     <constraint firstAttribute="bottom" secondItem="Eoi-Ys-HnA" secondAttribute="bottom" constant="10" id="SUi-7E-qDw"/>
                     <constraint firstItem="Eoi-Ys-HnA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Wfc-X1-O0v"/>
+                    <constraint firstAttribute="trailing" secondItem="Eoi-Ys-HnA" secondAttribute="trailing" constant="10" id="l45-pO-V6D"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" name="Chat Background"/>
             <connections>
+                <outlet property="leftConstraint" destination="2HV-nW-QK5" id="anC-QQ-ShC"/>
                 <outlet property="messageBubble" destination="Eoi-Ys-HnA" id="1dC-MP-Ph4"/>
                 <outlet property="messageLabel" destination="jpU-39-dIv" id="s3Z-h5-bWA"/>
+                <outlet property="rightConstraint" destination="l45-pO-V6D" id="ntb-SE-7bv"/>
             </connections>
             <point key="canvasLocation" x="-136.95652173913044" y="-63.28125"/>
         </tableViewCell>
