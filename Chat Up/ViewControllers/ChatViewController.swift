@@ -20,38 +20,16 @@ class ChatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.dataSource = self
-        
         navigationItem.title = "ChatUp!"
         
-        tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.chatReusableCell)
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.chatBubbleCell)
         
-        loadMessages()
-    }
-    
-    func loadMessages() {
-        db.collection(K.Fstore.messagesCollectionName).order(by: K.Fstore.dateField).addSnapshotListener { (querySnapshot, error) in
-            
-            self.messages = []
-            
-            if let err = error {
-                print("Error retrieving data from Firestore: \(err)")
-            } else {
-                if let snapshotDocuments = querySnapshot?.documents {
-                    for doc in snapshotDocuments {
-                        if let sender = doc.data()[K.Fstore.senderField] as? String,
-                           let body = doc.data()[K.Fstore.bodyField] as? String {
-                            
-                            print(doc.data())
-                            self.messages.append(Message(with: sender, body, Date().timeIntervalSince1970))
-                            
-                            DispatchQueue.main.async {
-                                self.tableView.reloadData()
-                            }
-                        }
-                    }
-                }
-            }
+        let contact = optionalObject as! Contact
+        let chat = UserSession.shared.chats.filter { return $0.id == contact.chat }
+        
+        if let messages = chat.first?.messages {
+            self.messages = messages
         }
     }
     
@@ -102,15 +80,9 @@ extension ChatViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let message = messages[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.chatReusableCell, for: indexPath) as! MessageCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.chatBubbleCell, for: indexPath) as! MessageCell
         
-        cell.messageLabel.text = message.body
-        
-        if message.sender == currentUser?.uid {
-            
-        } else {
-
-        }
+        cell.config(message: message.body, isSender: message.sender == currentUser?.uid)
         
         return cell
     }
