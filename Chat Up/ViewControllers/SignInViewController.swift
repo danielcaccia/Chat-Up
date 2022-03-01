@@ -42,7 +42,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
                     self.passwordTextField.text = ""
                 } else {
                     UserSession.shared.fetchUserSession()
-                    Coordinator.shared.presentNewController(currentViewController: self, storyboardName: K.StoryboardIDs.mainStoryboard, viewControllerID: K.StoryboardIDs.contactsView, isModal: false, optionalObject: nil)
+                    Coordinator.shared.presentNewController(currentViewController: self, storyboardName: K.StoryboardIDs.mainStoryboard, viewControllerID: K.StoryboardIDs.chatsView, isModal: false, optionalObject: nil)
                 }
             }
         }

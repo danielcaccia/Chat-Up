@@ -7,14 +7,14 @@
 
 import Foundation
 
-struct Contact {
+struct Contact: Codable {
     
     let uid: String
     let firstName: String
     let lastName: String
-    let chat: String?
+    let chat: String
     
-    init(with uid: String, _ firstName: String, _ lastName: String, _ chat: String?) {
+    init(with uid: String, _ firstName: String, _ lastName: String, _ chat: String) {
         self.uid = uid
         self.firstName = firstName
         self.lastName = lastName
